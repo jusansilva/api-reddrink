@@ -2,16 +2,26 @@
   "name": "api-reddrink",
   "version": "1.0.0",
   "description": "API to process game Red Drink",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
     "express": "^4.17.1",
-    "typedi": "^0.10.0"
+    "mongoose": "^5.11.16",
+    "typedi": "^0.10.0",    
+    "@types/node": "^14.14.27"
+
   },
   "devDependencies": {
-    "@types/node": "^14.14.27"
+    "typescript": "^4.1.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/ports/http/index.js",
+    "dev": "npm run build & nodemon  dist/ports/http/index.js",
+    "lint": "eslint .",
+    "eslint": "eslint --no-error-on-unmatched-pattern $(git diff --name-only origin/develop)",
+    "debug": "tsc && node dist/ports/http/index.js",
+    "postinstall": "grunt"
   },
   "author": "Jusan Magno <jusanmagno@gmail.com>",
   "license": "ISC"

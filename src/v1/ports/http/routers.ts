@@ -3,7 +3,6 @@ import { v1 } from "./routers/index";
 import * as express from "express";
 import * as  bodyParser from 'body-parser';
 import { Healht } from "./routers/health-routes";
-import { Front } from "./routers/front-routes";
 
 
 export class AppRouters {
@@ -13,7 +12,6 @@ export class AppRouters {
     app.use(bodyParser.urlencoded({
       extended: true
     }));
-    app.use(Front);
     app.use(v1);
     app.use(Healht);
   }
